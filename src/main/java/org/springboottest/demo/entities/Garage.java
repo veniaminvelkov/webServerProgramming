@@ -1,9 +1,6 @@
-package org.springboottest.demo;
+package org.springboottest.demo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +28,10 @@ public class Garage {
     private String city;
 
     private int capacity;
+
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
 
     @Override
     public String toString() {

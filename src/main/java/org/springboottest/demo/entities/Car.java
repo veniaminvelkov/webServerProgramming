@@ -1,9 +1,6 @@
-package org.springboottest.demo;
+package org.springboottest.demo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +33,8 @@ public class Car {
 
     private String licensePlate;
 
-    private List<String> garageIds;
+    @OneToMany(mappedBy = "car")
+    private List<Garage> garages;
 
     @Override
     public String toString() {
