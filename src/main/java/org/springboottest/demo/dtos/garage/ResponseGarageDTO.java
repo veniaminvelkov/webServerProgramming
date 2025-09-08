@@ -1,4 +1,4 @@
-package org.springboottest.demo.dtos;
+package org.springboottest.demo.dtos.garage;
 
 import lombok.Getter;
 import lombok.Setter;

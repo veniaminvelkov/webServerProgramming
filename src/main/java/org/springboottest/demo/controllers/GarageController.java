@@ -1,10 +1,10 @@
 package org.springboottest.demo.controllers;
 
 import jakarta.validation.Valid;
-import org.springboottest.demo.dtos.CreateGarageDTO;
-import org.springboottest.demo.dtos.DeleteGarageDTO;
-import org.springboottest.demo.dtos.ResponseGarageDTO;
-import org.springboottest.demo.dtos.UpdateGarageDTO;
+import org.springboottest.demo.dtos.garage.CreateGarageDTO;
+import org.springboottest.demo.dtos.garage.DeleteGarageDTO;
+import org.springboottest.demo.dtos.garage.ResponseGarageDTO;
+import org.springboottest.demo.dtos.garage.UpdateGarageDTO;
 import org.springboottest.demo.services.GarageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
