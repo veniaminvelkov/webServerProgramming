@@ -1,5 +1,7 @@
 package org.springboottest.demo.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,13 +17,17 @@ public class CreateCarDTO {
 "licensePlate": "string",
      */
 
+    @NotBlank
     private String make;
 
+    @NotBlank
     private String model;
 
-    private String year;
-
+    @NotBlank
     private String licensePlate;
 
-    private List<Integer> garageIds;
+    @NotNull
+    private int productionYear;
+
+    private List<Long> garageIds;
 }

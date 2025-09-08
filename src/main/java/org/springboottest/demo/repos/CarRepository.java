@@ -1,5 +1,4 @@
 package org.springboottest.demo.repos;
-
 import org.springboottest.demo.entities.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 

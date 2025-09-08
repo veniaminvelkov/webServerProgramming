@@ -46,11 +46,24 @@ public class GarageService {
         return toResponse(garage);
     }
 
-    public DeleteGarageDTO deleteGarageById(Long id) {
+//    public DeleteGarageDTO deleteGarageById(Long id) {
+//
+//
+//        garageRepository.deleteById(id);
+//        DeleteGarageDTO deleted = new DeleteGarageDTO();
+//        deleted.setId(id);
+//        return deleted;
+//    }
+
+    public void deleteGarageById(Long id) {
+        Garage garage = garageRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Garage not found"));
+
+        if (!garage.getCars().isEmpty()) {
+            throw new IllegalStateException("Cannot delete garage with cars assigned");
+        }
+
         garageRepository.deleteById(id);
-        DeleteGarageDTO deleted = new DeleteGarageDTO();
-        deleted.setId(id);
-        return deleted;
     }
 
     public ResponseGarageDTO updateGarageDTO(Long id,  UpdateGarageDTO updateGarageDTO) {
@@ -76,7 +89,7 @@ public class GarageService {
         return responseGarageDTOS;
     }
 
-    private ResponseGarageDTO toResponse(Garage g) {
+    public ResponseGarageDTO toResponse(Garage g) {
 
         ResponseGarageDTO response = new ResponseGarageDTO();
         response.setId(g.getId());
