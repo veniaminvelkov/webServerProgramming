@@ -1,6 +1,7 @@
 package org.springboottest.demo.services;
 
 import org.springboottest.demo.dtos.CreateGarageDTO;
+import org.springboottest.demo.dtos.DeleteGarageDTO;
 import org.springboottest.demo.dtos.ResponseGarageDTO;
 import org.springboottest.demo.entities.Garage;
 import org.springboottest.demo.repos.GarageRepository;
@@ -41,6 +42,13 @@ public class GarageService {
         Garage garage = garageRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Garage not found"));
         return toResponse(garage);
+    }
+
+    public DeleteGarageDTO deleteGarageById(Long id) {
+        garageRepository.deleteById(id);
+        DeleteGarageDTO deleted = new DeleteGarageDTO();
+        deleted.setId(id);
+        return deleted;
     }
 
     private ResponseGarageDTO toResponse(Garage g) {

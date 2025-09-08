@@ -2,6 +2,7 @@ package org.springboottest.demo.controllers;
 
 import jakarta.validation.Valid;
 import org.springboottest.demo.dtos.CreateGarageDTO;
+import org.springboottest.demo.dtos.DeleteGarageDTO;
 import org.springboottest.demo.dtos.ResponseGarageDTO;
 import org.springboottest.demo.services.GarageService;
 import org.springframework.http.ResponseEntity;
@@ -32,5 +33,11 @@ public class GarageController {
     @PostMapping
     public ResponseEntity<ResponseGarageDTO> createGarage(@Valid @RequestBody CreateGarageDTO dto) {
         return ResponseEntity.ok(garageService.createGarage(dto));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<DeleteGarageDTO> deleteGarageById(@PathVariable String id) {
+        garageService.deleteGarageById(Long.valueOf(id));
+        return ResponseEntity.ok().build();
     }
 }
