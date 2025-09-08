@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.springboottest.demo.dtos.CreateGarageDTO;
 import org.springboottest.demo.dtos.DeleteGarageDTO;
 import org.springboottest.demo.dtos.ResponseGarageDTO;
+import org.springboottest.demo.dtos.UpdateGarageDTO;
 import org.springboottest.demo.services.GarageService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,8 +37,13 @@ public class GarageController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<DeleteGarageDTO> deleteGarageById(@PathVariable String id) {
-        garageService.deleteGarageById(Long.valueOf(id));
+    public ResponseEntity<DeleteGarageDTO> deleteGarageById(@PathVariable Long id) {
+        garageService.deleteGarageById(id);
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseGarageDTO> updateGarageById(@PathVariable Long id, @Valid @RequestBody UpdateGarageDTO dto) {
+        return ResponseEntity.ok(garageService.updateGarageDTO(id, dto));
     }
 }
