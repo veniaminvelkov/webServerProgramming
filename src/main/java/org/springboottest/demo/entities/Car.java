@@ -33,7 +33,12 @@ public class Car {
 
     private String licensePlate;
 
-    @OneToMany(mappedBy = "car")
+    @ManyToMany
+    @JoinTable(
+            name = "car_garage",
+            joinColumns = @JoinColumn(name = "car_id"),
+            inverseJoinColumns = @JoinColumn(name = "garage_id")
+    )
     private List<Garage> garages;
 
     @Override

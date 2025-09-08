@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "garages")
 @Getter
@@ -29,9 +31,8 @@ public class Garage {
 
     private int capacity;
 
-    @ManyToOne
-    @JoinColumn(name = "car_id")
-    private Car car;
+    @ManyToMany(mappedBy = "garages")
+    private List<Car> cars;
 
     @Override
     public String toString() {
