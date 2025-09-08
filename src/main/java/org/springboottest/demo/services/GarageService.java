@@ -8,6 +8,7 @@ import org.springboottest.demo.entities.Garage;
 import org.springboottest.demo.repos.GarageRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -63,6 +64,16 @@ public class GarageService {
         garageRepository.save(garage);
 
         return toResponse(garage);
+    }
+
+    public List<ResponseGarageDTO> getGarageByCity(String city) {
+        List<Garage> garages = garageRepository.findByCity(city);
+        List<ResponseGarageDTO> responseGarageDTOS = new ArrayList<>();
+        for(Garage garage : garages) {
+            responseGarageDTOS. add(toResponse(garage));
+        }
+
+        return responseGarageDTOS;
     }
 
     private ResponseGarageDTO toResponse(Garage g) {

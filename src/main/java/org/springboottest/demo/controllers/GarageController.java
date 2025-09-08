@@ -21,10 +21,12 @@ public class GarageController {
         this.garageService = garageService;
     }
 
+    /*
     @GetMapping
     public ResponseEntity<List<ResponseGarageDTO>> getGarage() {
         return  ResponseEntity.ok(garageService.getAllGarages());
     }
+     */
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseGarageDTO> getGarageById(@PathVariable Long id) {
@@ -45,5 +47,15 @@ public class GarageController {
     @PutMapping("/{id}")
     public ResponseEntity<ResponseGarageDTO> updateGarageById(@PathVariable Long id, @Valid @RequestBody UpdateGarageDTO dto) {
         return ResponseEntity.ok(garageService.updateGarageDTO(id, dto));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ResponseGarageDTO>> getAllGarages(
+            @RequestParam(required = false) String city
+    ) {
+        if (city != null && !city.isBlank()) {
+            return ResponseEntity.ok(garageService.getGarageByCity(city));
+        }
+        return ResponseEntity.ok(garageService.getAllGarages());
     }
 }
