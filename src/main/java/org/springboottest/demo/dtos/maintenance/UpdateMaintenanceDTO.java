@@ -1,24 +1,19 @@
 package org.springboottest.demo.dtos.maintenance;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateMaintenanceDTO {
+public class UpdateMaintenanceDTO {
 
     @NotNull
     private Long garageId;
 
-    @NotNull
     private Long carId;
 
-    @NotBlank
     private String serviceType;
 
-    @NotBlank
-    //yyyy-mm-dd
     private String scheduledDate;
 }
