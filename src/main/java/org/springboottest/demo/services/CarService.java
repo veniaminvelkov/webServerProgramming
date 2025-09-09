@@ -1,7 +1,7 @@
 package org.springboottest.demo.services;
 
-import org.springboottest.demo.dtos.CreateCarDTO;
-import org.springboottest.demo.dtos.ResponseCarDTO;
+import org.springboottest.demo.dtos.car.CreateCarDTO;
+import org.springboottest.demo.dtos.car.ResponseCarDTO;
 
 import org.springboottest.demo.dtos.garage.ResponseGarageDTO;
 import org.springboottest.demo.entities.Car;
@@ -11,7 +11,6 @@ import org.springboottest.demo.repos.CarRepository;
 import org.springboottest.demo.repos.GarageRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

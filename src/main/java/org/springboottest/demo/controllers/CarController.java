@@ -1,8 +1,8 @@
 package org.springboottest.demo.controllers;
 
 import jakarta.validation.Valid;
-import org.springboottest.demo.dtos.CreateCarDTO;
-import org.springboottest.demo.dtos.ResponseCarDTO;
+import org.springboottest.demo.dtos.car.CreateCarDTO;
+import org.springboottest.demo.dtos.car.ResponseCarDTO;
 import org.springboottest.demo.services.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
