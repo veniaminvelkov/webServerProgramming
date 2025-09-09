@@ -1,4 +1,4 @@
-package org.springboottest.demo.dtos;
+package org.springboottest.demo.dtos.car;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
