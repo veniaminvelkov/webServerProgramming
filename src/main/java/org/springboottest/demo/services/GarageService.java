@@ -46,15 +46,6 @@ public class GarageService {
         return toResponse(garage);
     }
 
-//    public DeleteGarageDTO deleteGarageById(Long id) {
-//
-//
-//        garageRepository.deleteById(id);
-//        DeleteGarageDTO deleted = new DeleteGarageDTO();
-//        deleted.setId(id);
-//        return deleted;
-//    }
-
     public void deleteGarageById(Long id) {
         Garage garage = garageRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Garage not found"));

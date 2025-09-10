@@ -7,7 +7,10 @@ import lombok.Setter;
 @Setter
 public class ResponseMaintenanceDTO {
 
+    private Long id;
+
     private Long carId;
+
     private String carName;
 
     private String serviceType;
